@@ -20,11 +20,11 @@ public class Problem15_LatticePaths implements ProblemInterface {
 		System.out.println("Problem 15: " + nf.format(combination(40, 20)));
 	}
 
-	private static double combination(int n, int m) {
+	private double combination(int n, int m) {
 		return (factorial(n) / (factorial(m) * factorial(n - m)));
 	}
 
-	private static double factorial(int n) {
+	private double factorial(int n) {
 		double ans = 1;
 		if (n > 1) {
 			ans = ans * factorial(n - 1);

@@ -1,5 +1,7 @@
 package com.walshcorp.projecteuler;
 
+import java.util.Calendar;
+
 /**
  * You are given the following information, but you may prefer to do some
  * research for yourself.<br />
@@ -24,7 +26,8 @@ public class Problem19_CountingSundays implements ProblemInterface {
 	public void solve() {
 		int noOfSundays = 0;
 		for (int year = 1901; year < 2001; year++) {
-			noOfSundays += countSundaysInYear(year);
+			// noOfSundays += countSundaysInYear(year);
+			noOfSundays += countSundaysInYearCalendarAPI(year);
 		}
 		System.out.println("Problem 19: " + noOfSundays);
 	}
@@ -51,6 +54,24 @@ public class Problem19_CountingSundays implements ProblemInterface {
 			dayOffset -= 7;
 		}
 		return dayOffset;
+	}
+
+	/**
+	 * Using the Calendar API
+	 * 
+	 * @param year
+	 * @return
+	 */
+	private int countSundaysInYearCalendarAPI(int year) {
+		int sundays = 0;
+		for (int month = 0; month < 12; month++) {
+			Calendar cal = Calendar.getInstance();
+			cal.set(year, month, 1);
+			if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+				sundays += 1;
+			}
+		}
+		return sundays;
 	}
 
 	/**
@@ -136,7 +157,7 @@ public class Problem19_CountingSundays implements ProblemInterface {
 		int extraDaysOutsideWeeks = days % 7;
 
 		// Offset:
-		firstDayOfMonth = firstDayOfYear + extraDaysOutsideWeeks;
+		firstDayOfMonth = firstDayOfYear + extraDaysOutsideWeeks + 1;
 
 		// Adjust for week length:
 		if (firstDayOfMonth > 6) {
