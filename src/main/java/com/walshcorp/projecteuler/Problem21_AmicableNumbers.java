@@ -1,5 +1,10 @@
 package com.walshcorp.projecteuler;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Let d(n) be defined as the sum of proper divisors of n (numbers less than n
  * which divide evenly into n). If d(a) = b and d(b) = a, where a != b, then a
@@ -18,14 +23,45 @@ public class Problem21_AmicableNumbers implements ProblemInterface {
 
 	@Override
 	public void solve() {
-		// TODO Auto-generated method stub
-		for (int i = 2; i < 10000; i++) {
-
+		int sum = 0;
+		Map<Integer, Integer> numbers = new HashMap<Integer, Integer>();
+		for (int i = 1; i < 10000; i++) {
+			int dOfI = sumDivisiors(i);
+			if (i != dOfI) {
+				numbers.put(i, sumDivisiors(i));
+			}
 		}
+		for (int i = 1; i < 10000; i++) {
+			// d(I) = J for d(J) = I
+			// => d(d(I)) = I
+			try {
+				if (numbers.get(numbers.get(i)) == i) {
+					sum += i;
+				}
+			} catch (NullPointerException e) {
+
+			}
+		}
+		System.out.println("Problem 21: " + sum);
 	}
 
 	private int sumDivisiors(int num) {
 		int sum = 0;
+		List<Integer> divisors = getDivisors(num);
+		for (Integer i : divisors) {
+			sum += i;
+		}
 		return sum;
+	}
+
+	private List<Integer> getDivisors(int num) {
+		List<Integer> divisors = new ArrayList<Integer>();
+		int limit = num / 2;
+		for (int i = 1; i <= limit; i++) {
+			if (num % i == 0) {
+				divisors.add(i);
+			}
+		}
+		return divisors;
 	}
 }
