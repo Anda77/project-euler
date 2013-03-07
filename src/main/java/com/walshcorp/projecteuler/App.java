@@ -32,7 +32,11 @@ public class App {
 		// problemList.add(new Problem19_CountingSundays());
 		// problemList.add(new Problem20_FactorialDigitSum());
 		// problemList.add(new Problem21_AmicableNumbers());
-		problemList.add(new Problem22_NameScores());
+		// problemList.add(new Problem22_NameScores());
+		// problemList.add(new Problem23_NonAbundantSums());
+		// problemList.add(new Problem24_LexicographicPermutations());
+		// problemList.add(new Problem25_1000DigitFibonacciNumber());
+		problemList.add(new Problem26_ReciprocalCycles());
 
 		// problemList.add(new Problem67_MaximumPathSumII());
 
