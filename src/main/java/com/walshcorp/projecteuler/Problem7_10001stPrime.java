@@ -26,7 +26,7 @@ public class Problem7_10001stPrime implements ProblemInterface {
 		System.out.println("Problem 7: " + prime);
 	}
 
-	private static boolean isPrime(int number) {
+	private boolean isPrime(int number) {
 		boolean prime = true;
 		double limit = Math.sqrt(number);
 		if (number == 1) {

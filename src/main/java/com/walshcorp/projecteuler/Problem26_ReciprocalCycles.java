@@ -27,7 +27,6 @@ import java.util.Set;
  * 
  */
 public class Problem26_ReciprocalCycles implements ProblemInterface {
-
 	@Override
 	public void solve() {
 		int max = 0;

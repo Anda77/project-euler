@@ -36,7 +36,7 @@ public class Problem23_NonAbundantSums implements ProblemInterface {
 				sum += i;
 			}
 		}
-		System.out.println("Problem23: " + sum);
+		System.out.println("Problem 23: " + sum);
 	}
 
 	/**
