@@ -41,6 +41,8 @@ public class App {
 		problemList.add(new Problem27_QuadraticPrimes());
 		problemList.add(new Problem28_NumberDiagonalSpirals());
 		problemList.add(new Problem29_DistinctPowers());
+		problemList.add(new Problem30_DigitFifthPowers());
+		problemList.add(new Problem31_CoinSums());
 
 		problemList.add(new Problem67_MaximumPathSumII());
 
