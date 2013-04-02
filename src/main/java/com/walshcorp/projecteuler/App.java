@@ -43,6 +43,8 @@ public class App {
 		problemList.add(new Problem29_DistinctPowers());
 		problemList.add(new Problem30_DigitFifthPowers());
 		problemList.add(new Problem31_CoinSums());
+		problemList.add(new Problem32_PandigitalProducts());
+		problemList.add(new Problem33_DigitCancellingFractions());
 
 		problemList.add(new Problem67_MaximumPathSumII());
 
