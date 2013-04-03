@@ -76,7 +76,7 @@ public class Problem11_LargestProductInAGrid implements ProblemInterface {
 	 * @param colIndex
 	 * @return
 	 */
-	private static int checkVertical(int[][] numbers, int rowIndex, int colIndex) {
+	private int checkVertical(int[][] numbers, int rowIndex, int colIndex) {
 		int product = 0;
 		int tempProduct = 0;
 
@@ -106,8 +106,7 @@ public class Problem11_LargestProductInAGrid implements ProblemInterface {
 	 * @param colIndex
 	 * @return
 	 */
-	private static int checkHorizontal(int[][] numbers, int rowIndex,
-			int colIndex) {
+	private int checkHorizontal(int[][] numbers, int rowIndex, int colIndex) {
 		int product = 0;
 		int tempProduct = 0;
 
@@ -137,8 +136,7 @@ public class Problem11_LargestProductInAGrid implements ProblemInterface {
 	 * @param colIndex
 	 * @return
 	 */
-	private static int checkDiagonalForward(int[][] numbers, int rowIndex,
-			int colIndex) {
+	private int checkDiagonalForward(int[][] numbers, int rowIndex, int colIndex) {
 		int product = 0;
 
 		int tempProduct = 0;
@@ -168,7 +166,7 @@ public class Problem11_LargestProductInAGrid implements ProblemInterface {
 	 * @param colIndex
 	 * @return
 	 */
-	private static int checkDiagonalBackward(int[][] numbers, int rowIndex,
+	private int checkDiagonalBackward(int[][] numbers, int rowIndex,
 			int colIndex) {
 		int product = 0;
 
@@ -191,7 +189,7 @@ public class Problem11_LargestProductInAGrid implements ProblemInterface {
 		return product;
 	}
 
-	private static int[][] setup() {
+	private int[][] setup() {
 		int[][] array = new int[20][20];
 		String numbers = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 "
 				+ "49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 "

@@ -39,7 +39,7 @@ public class Problem12_TriangularNumbers implements ProblemInterface {
 		System.out.println("Problem 12: " + triNum);
 	}
 
-	private static int numberOfDivisors(int n) {
+	private int numberOfDivisors(int n) {
 		int limit = n;
 		int numberOfDivisors = 0;
 
@@ -60,7 +60,7 @@ public class Problem12_TriangularNumbers implements ProblemInterface {
 	 * @param n
 	 * @return
 	 */
-	private static int triangularNumber(int n) {
+	private int triangularNumber(int n) {
 		return (n * (n + 1)) / 2;
 	}
 }

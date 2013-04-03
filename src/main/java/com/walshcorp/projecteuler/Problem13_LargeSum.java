@@ -13,7 +13,9 @@ import java.util.List;
 public class Problem13_LargeSum implements ProblemInterface {
 	@Override
 	public void solve() {
-		List<Double> numbers = setup();
+		List<Double> numbers = Utilities
+				.readFileAsListOfDouble("Problem13_Res");
+		;
 		Double total = 0d;
 		for (Double d : numbers) {
 			total += d;
@@ -22,14 +24,5 @@ public class Problem13_LargeSum implements ProblemInterface {
 		NumberFormat nf = NumberFormat.getInstance();
 		nf.setGroupingUsed(false);
 		System.out.println("Problem 13: " + nf.format(total).substring(0, 10));
-	}
-
-	/**
-	 * Get the list of numbers to sum:
-	 * 
-	 * @return
-	 */
-	private static List<Double> setup() {
-		return Utilities.readFileAsListOfDouble("Problem13_Res");
 	}
 }

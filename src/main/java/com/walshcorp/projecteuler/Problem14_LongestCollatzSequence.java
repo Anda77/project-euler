@@ -41,7 +41,7 @@ public class Problem14_LongestCollatzSequence implements ProblemInterface {
 		System.out.println("Problem 14: " + magicNumber);
 	}
 
-	private static long collatz(long n) {
+	private long collatz(long n) {
 		long collNum = 0;
 		if (n % 2 == 0) {
 			// Even

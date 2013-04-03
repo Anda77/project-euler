@@ -1,6 +1,7 @@
 package com.walshcorp.projecteuler;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -39,22 +40,13 @@ public class Problem4_LargestPalindromeProduct implements ProblemInterface {
 	 * @param str
 	 * @return
 	 */
-	private static boolean checkPalindrome(String str) {
-		boolean isPalindrome = true;
-		int len = str.length();
-		if (len % 2 == 1) {
-			isPalindrome = false;
-		} else {
-			int mid = (int) Math.ceil((double) (len / 2));
-
-			for (int i = 0; i < mid; i++) {
-				if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
-					isPalindrome = false;
-					break;
-				}
-			}
+	private boolean checkPalindrome(String str) {
+		char[] chars = str.toCharArray();
+		int len = chars.length;
+		char[] reverse = new char[len];
+		for (int i = 0; i < len; i++) {
+			reverse[len - 1 - i] = chars[i];
 		}
-
-		return isPalindrome;
+		return Arrays.equals(chars, reverse);
 	}
 }

@@ -20,7 +20,7 @@ public class Problem10_SummationOfPrimes implements ProblemInterface {
 		System.out.println("Problem 10: " + sum);
 	}
 
-	private static boolean isPrime(int number) {
+	private boolean isPrime(int number) {
 		boolean prime = true;
 		double limit = Math.sqrt(number);
 		if (number == 1) {
