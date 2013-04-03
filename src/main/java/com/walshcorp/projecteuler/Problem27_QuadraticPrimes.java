@@ -49,7 +49,7 @@ public class Problem27_QuadraticPrimes implements ProblemInterface {
 				}
 			}
 		}
-		int result = storeA * storeB;
+		int result = Math.abs(storeA * storeB);
 
 		System.out.println("Problem 27: " + result);
 	}

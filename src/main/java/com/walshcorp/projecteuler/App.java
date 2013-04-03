@@ -48,6 +48,8 @@ public class App {
 		problemList.add(new Problem34_DigitFactorials());
 		problemList.add(new Problem35_CircularPrimes());
 		problemList.add(new Problem36_DoubleBasePalindromes());
+		problemList.add(new Problem37_TruncatablePrimes());
+		problemList.add(new Problem38_PandigitalMultiples());
 
 		problemList.add(new Problem67_MaximumPathSumII());
 
