@@ -22,6 +22,52 @@ package com.walshcorp.projecteuler;
 public class Problem38_PandigitalMultiples implements ProblemInterface {
 	@Override
 	public void solve() {
-		System.out.println("Problem 38: ?");
+		int num = -1;
+
+		// 1. To be the largest number, it must start with 9.
+		// 2. The pandigital number must be a formed from a number starting with
+		// 9 as 1 is the first multiplier.
+		// 3. By inspection we need a four digit number, which when multipled by
+		// 1 and 2 and concated will form a 4 + 5 = 9 digit number.
+
+		// This will give a number of the form 9 _ _ _ 1 8 _ _ _ when multiplied
+		// by 1 and 2 and concatenated.
+		// Smaller numbers, ie 900 will need to be multipled by 1,2,3 giving an
+		// 11 digit number.
+		// Larger numbers ie 90000 when multiplied by 1 and 2 give 11 digit
+		// numbers also.
+
+		for (int i = 9000; i <= 9999; i++) {
+			String concatStr = "";
+			int n = 1;
+			while (concatStr.length() < 9) {
+				int product = i * n;
+				concatStr += product;
+				n++;
+			}
+
+			if (isPandigitalNineDigitNumber(concatStr)) {
+				int pdn = Integer.parseInt(concatStr);
+				if (pdn > num) {
+					num = pdn;
+				}
+			}
+		}
+		System.out.println("Problem 38: " + num);
+	}
+
+	private boolean isPandigitalNineDigitNumber(String number) {
+		boolean panDigital = true;
+		if (number.length() == 9) {
+			for (int i = 1; i <= 9; i++) {
+				if (!number.contains("" + i)) {
+					panDigital = false;
+					break;
+				}
+			}
+		} else {
+			panDigital = false;
+		}
+		return panDigital;
 	}
 }
