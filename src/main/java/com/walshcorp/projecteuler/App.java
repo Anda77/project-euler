@@ -62,7 +62,12 @@ public class App {
 
 	private static void solveProblems(List<ProblemInterface> problems) {
 		for (ProblemInterface problem : problems) {
+			long start = System.currentTimeMillis();
 			problem.solve();
+			long end = System.currentTimeMillis();
+			if ((end - start) > 2000) {
+				System.out.println("IMPROVE EFFICIENCY OF ABOVE SOLUTION.");
+			}
 		}
 	}
 }
