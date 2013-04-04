@@ -91,4 +91,20 @@ public class Utilities {
 
 		return twoD;
 	}
+
+	public static List<String> readFileAsListOfString(String fileName) {
+		List<String> returnList = new ArrayList<String>();
+		Scanner scanner = new Scanner(loadFileFromResources(fileName));
+		scanner.useDelimiter("\\n");
+
+		while (scanner.hasNext()) {
+			String line = scanner.next();
+			String[] words = line.split(",");
+
+			for (String word : words) {
+				returnList.add(word.replace("\"", "").trim());
+			}
+		}
+		return returnList;
+	}
 }

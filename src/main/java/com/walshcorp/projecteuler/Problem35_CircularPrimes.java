@@ -1,8 +1,6 @@
 package com.walshcorp.projecteuler;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -40,17 +38,9 @@ public class Problem35_CircularPrimes implements ProblemInterface {
 				circularPrime = true;
 			}
 		} else {
-			List<String> rotations = getRotations("" + number);
-			boolean allPrime = true;
-			for (String str : rotations) {
-				if (!str.startsWith("0")) {
-					if (!isPrime(Integer.parseInt(str))) {
-						allPrime = false;
-						break;
-					}
-				}
+			if (rotationsAllPrime("" + number)) {
+				circularPrime = true;
 			}
-			circularPrime = allPrime;
 		}
 		return circularPrime;
 	}
@@ -61,24 +51,32 @@ public class Problem35_CircularPrimes implements ProblemInterface {
 	 * @param number
 	 * @return
 	 */
-	private List<String> getRotations(String number) {
-		List<String> rotations = new ArrayList<String>();
-		int len = number.length();
-		int offset = 0;
-		while (offset < len) {
-			char[] chars = new char[len];
-			for (int i = 0; i < len; i++) {
-				int pos = i + offset;
-				if (pos >= len) {
-					pos -= len;
+	private boolean rotationsAllPrime(String number) {
+		boolean allPrime = false;
+
+		if (isPrime(Integer.parseInt(number))) {
+			allPrime = true;
+
+			int len = number.length();
+			int offset = 1;
+			while (offset < len) {
+				char[] chars = new char[len];
+				for (int i = 0; i < len; i++) {
+					int pos = i + offset;
+					if (pos >= len) {
+						pos -= len;
+					}
+					chars[i] = number.charAt(pos);
 				}
-				chars[i] = number.charAt(pos);
+				if (!isPrime(Integer.parseInt(new String(chars)))) {
+					allPrime = false;
+					break;
+				}
+				offset++;
 			}
-			rotations.add(new String(chars));
-			offset++;
 		}
 
-		return rotations;
+		return allPrime;
 	}
 
 	private boolean isPrime(int number) {

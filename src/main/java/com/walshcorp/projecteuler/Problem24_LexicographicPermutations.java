@@ -1,7 +1,6 @@
 package com.walshcorp.projecteuler;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,34 +21,47 @@ public class Problem24_LexicographicPermutations implements ProblemInterface {
 
 	@Override
 	public void solve() {
-		String numbers = "0123456789";
+		List<String> numberList = new ArrayList<String>();
+		numberList.add("0");
+		numberList.add("1");
+		numberList.add("2");
+		numberList.add("3");
+		numberList.add("4");
+		numberList.add("5");
+		numberList.add("6");
+		numberList.add("7");
+		numberList.add("8");
+		numberList.add("9");
 
-		List<String> permutations = permutations(numbers);
-		Collections.sort(permutations);
-		String millionth = permutations.get(999999);
+		// Millionth index = 999999;
+
+		// Factorial reduction:
+		// 999999 = 2 * 9! + 274239
+		// = 2*9! + 6*8! + 32319
+		// = 2*9! + 6*8! + 6*7! + 2079
+		// = 2*9! + 6*8! + 6*7! + 2*6! + 639
+		// = 2*9! + 6*8! + 6*7! + 2*6! + 5*5! + 39
+		// = 2*9! + 6*8! + 6*7! + 2*6! + 5*5! + 1*4! + 15
+		// = 2*9! + 6*8! + 6*7! + 2*6! + 5*5! + 1*4! + 2*3! + 3
+		// = 2*9! + 6*8! + 6*7! + 2*6! + 5*5! + 1*4! + 2*3! + 1*2! + 1*1! + 0
+		// = 2*9! + 6*8! + 6*7! + 2*6! + 5*5! + 1*4! + 2*3! + 1*2! + 1*1! + 0+0!
+
+		// Multipliers = 2,6,6,2,5,1,2,1,1,0
+		// Using these indices and removing the positions from the List, the
+		// millionth permutation can be constructed:
+
+		String millionth = "";
+		millionth += numberList.remove(2);
+		millionth += numberList.remove(6);
+		millionth += numberList.remove(6);
+		millionth += numberList.remove(2);
+		millionth += numberList.remove(5);
+		millionth += numberList.remove(1);
+		millionth += numberList.remove(2);
+		millionth += numberList.remove(1);
+		millionth += numberList.remove(1);
+		millionth += numberList.remove(0);
 
 		System.out.println("Problem 24: " + millionth);
-	}
-
-	private List<String> permutations(String word) {
-		List<String> returnVal = new ArrayList<String>();
-		if (word.length() > 1) {
-			char character = word.charAt(0);
-			for (String subPermute : permutations(word.substring(1))) {
-				for (int index = 0; index <= subPermute.length(); index++) {
-					String pre = subPermute.substring(0, index);
-					String post = subPermute.substring(index);
-
-					if (post.contains("" + character)) {
-						continue;
-					}
-					returnVal.add(pre + character + post);
-				}
-
-			}
-		} else {
-			returnVal.add(word);
-		}
-		return returnVal;
 	}
 }

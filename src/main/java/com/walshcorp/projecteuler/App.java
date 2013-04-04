@@ -51,13 +51,16 @@ public class App {
 		problemList.add(new Problem37_TruncatablePrimes());
 		problemList.add(new Problem38_PandigitalMultiples());
 		problemList.add(new Problem39_IntegerRightTriangles());
+		problemList.add(new Problem40_ChampernownesConstant());
+		problemList.add(new Problem41_PandigitalPrime());
+		problemList.add(new Problem42_CodedTriangleNumbers());
 
 		problemList.add(new Problem67_MaximumPathSumII());
 
 		solveProblems(problemList);
 		long stop = System.currentTimeMillis();
-		long time = (stop - start) / 1000;
-		System.out.println("Elapsed: " + time + "s");
+		long time = (stop - start);
+		System.out.println("Elapsed: " + time + "ms");
 	}
 
 	private static void solveProblems(List<ProblemInterface> problems) {

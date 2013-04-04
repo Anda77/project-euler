@@ -13,19 +13,17 @@ package com.walshcorp.projecteuler;
 public class Problem5_SmallestMultiple implements ProblemInterface {
 	@Override
 	public void solve() {
-		int number = 0;
-		boolean numFound = false;
-		while (!numFound) {
-			number++;
-			boolean ok = true;
-			for (int n = 20; n >= 2; n--) {
-				if (number % n != 0) {
-					ok = false;
-					break;
-				}
-			}
-			numFound = ok;
-		}
+		// Prime factorization:
+		// 1=1, 2=2, 3=3, 4=2^2, 5=5, 6=2*3, 7=7, 8=2^3 ,9=3^2, 10=2*5, 11=11,
+		// 12=2^2*3, 13=13, 14=2*7, 15=3*5, 16=2^4 ,17=17, 18=3^2*2, 19=19,
+		// 20=2^2*5
+
+		// To obtain answer, multiply the greatest power of each prime together:
+		// 2^4 * 3^2 * 5 * 7 * 11 * 13 * 17 * 19
+
+		int number = (int) (Math.pow(2, 4) * Math.pow(3, 2) * 5 * 7 * 11 * 13
+				* 17 * 19);
+
 		System.out.println("Problem 5: " + number);
 	}
 }
