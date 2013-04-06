@@ -54,6 +54,8 @@ public class App {
 		problemList.add(new Problem40_ChampernownesConstant());
 		problemList.add(new Problem41_PandigitalPrime());
 		problemList.add(new Problem42_CodedTriangleNumbers());
+		problemList.add(new Problem43_SubstringDivisibility());
+		problemList.add(new Problem44_PentagonNumbers());
 
 		problemList.add(new Problem67_MaximumPathSumII());
 

@@ -15,12 +15,12 @@ public class Problem41_PandigitalPrime implements ProblemInterface {
 	public void solve() {
 		// Upper bound limit:
 		// Largest pandigital number that can have possibility of being prime is
-		// that where (1+2+...+n) %3 == 1; This excludes n=9 and n=8;
+		// that where (1+2+...+n) % 3 == 1; This excludes n=9 and n=8;
 		int i = 7654321;
 
-		// Lower Bound Limit: 12 as 11 is the next smallest prime number, and is
+		// Lower Bound Limit: 20 as 19 is the next smallest prime number, and is
 		// not pandigital...
-		while (i > 12) {
+		while (i > 20) {
 			if (isPandigitalNumber("" + i) && isPrime(i)) {
 				break;
 			}
