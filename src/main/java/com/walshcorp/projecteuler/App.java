@@ -56,6 +56,7 @@ public class App {
 		problemList.add(new Problem42_CodedTriangleNumbers());
 		problemList.add(new Problem43_SubstringDivisibility());
 		problemList.add(new Problem44_PentagonNumbers());
+		problemList.add(new Problem45_TriangularPentagonalAndHexagonal());
 
 		problemList.add(new Problem67_MaximumPathSumII());
 
