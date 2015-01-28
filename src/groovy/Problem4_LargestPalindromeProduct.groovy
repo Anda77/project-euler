@@ -22,7 +22,7 @@ solve = {
             if (isPalindrome(product)) {
                 if (product > result) {
                     result = product
-                } 
+                }
             }
         }
     }
