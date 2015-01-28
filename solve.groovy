@@ -13,6 +13,13 @@ if (!scriptFile.exists()) {
 
 def script = new GroovyShell().evaluate(scriptFile.text)
 
-println script.title
+def title = " ${script.title()} "
+while (title.size() < 100) {
+	title = "*${title}*"
+}
+
+println ''
+println title
 println script.description()
 println "Answer: ${script.solve()}"
+println ''
