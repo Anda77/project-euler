@@ -1,5 +1,5 @@
 
-title = { 'Problem : ' }
+title = { 'Problem 11: Largest Product In A Grid' }
 
 description = {
     """
