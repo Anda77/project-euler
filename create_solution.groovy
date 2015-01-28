@@ -18,7 +18,6 @@ description = {
 
 solve = {
     def result
-
     return result
 }
 """

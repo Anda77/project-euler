@@ -14,17 +14,15 @@ four million, find the sum of the even-valued terms.
 }
 
 solve = {
-    def fibonacci = { num1, num2 ->
-        return num1 + num2
-    }
-
     def num1 = 1
     def num2 = 2
 
     def sum = 2
     while (num2 < 4000000) {
         def old = num2
-        num2 = fibonacci(num1, num2)
+
+        // Fibonacci sequence:
+        num2 = num1 + num2
         num1 = old
 
         if (num2 % 2 == 0) {
