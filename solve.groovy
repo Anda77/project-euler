@@ -21,5 +21,7 @@ while (title.size() < 100) {
 println ''
 println title
 println script.description()
-println "Answer: ${script.solve()}"
+
+def start = System.currentTimeMillis()
+println "Answer: ${script.solve()} in ${System.currentTimeMillis() - start}ms"
 println ''

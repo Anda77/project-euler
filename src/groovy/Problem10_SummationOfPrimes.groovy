@@ -22,7 +22,6 @@ solve = {
     //Mark non primes
     for (int i = 2; i**2 <= n; i++) {
         if (isPrime[i]) {
-            def multipleLimit = n / i
             for (int j = i; i*j <= n; j++) {
                 isPrime[i*j] = false
             }
