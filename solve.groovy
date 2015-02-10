@@ -4,7 +4,7 @@ def scriptFile = new File(args[0])
 
 //  Else fall back to generic
 if (!scriptFile.exists()) {
-    scriptFile = new File(scriptsDir as String, "${membership.bookingAgent.code.toLowerCase()}-room-mappings.groovy")
+    scriptFile = new File("src/groovy/${args[0]}.groovy")
 }
 
 if (!scriptFile.exists()) {
