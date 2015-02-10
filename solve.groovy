@@ -8,14 +8,25 @@ if (!scriptFile.exists()) {
 }
 
 if (!scriptFile.exists()) {
-    throw new RuntimeException("File '${scriptFile.absolutePath}' not found")
+    def scriptsDir = new File('src/groovy')
+    def fileName = scriptsDir.list().find { it.matches("Problem${args[0]}_.+") }
+    if (!fileName) {
+        println "${args[0]} not found."
+        return 1
+    }
+    scriptFile = new File('src/groovy', fileName)
+}
+
+if (!scriptFile.exists()) {
+    println "File '${scriptFile.absolutePath}' not found"
+    return 1
 }
 
 def script = new GroovyShell().evaluate(scriptFile.text)
 
 def title = " ${script.title()} "
 while (title.size() < 100) {
-	title = "*${title}*"
+    title = "*${title}*"
 }
 
 println ''
